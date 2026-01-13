@@ -1,35 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this meta tag for proper full-screen display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zengo Play | Games On, Stress Gone</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Full width styling */
+        /* Full width and height styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }   
+        }
         html, body {
-            width: 100%;
+            width: 100vw;
+            max-width: 100vw;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         body { 
             background-color: #F5F1E9; 
             color: #1E3A8A; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
         }
-        /* Full width hero section */
+        /* Full width hero section - FIXED */
         .hero-gradient { 
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
-            min-height: 80vh;
+            width: 100vw;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
+            padding: 0;
+            margin: 0;
         }
         .accent-beige { 
             background-color: #E7E0D2; 
@@ -41,9 +47,19 @@
         .card-shadow:hover {
             transform: translateY(-5px);
         }
-        /* Full width sections */
-        section, header, footer {
-            width: 100%;
+        /* Make ALL sections full width */
+        section, header, footer, nav {
+            width: 100vw;
+            max-width: 100vw;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        /* Full width containers */
+        .full-width-container {
+            width: 100vw;
+            max-width: 100vw;
+            padding-left: 5%;
+            padding-right: 5%;
         }
         /* Form styling */
         .contact-form {
@@ -59,16 +75,30 @@
             transform: translateX(5px);
             background-color: rgba(59, 130, 246, 0.1);
         }
+        /* Remove any max-width constraints */
+        .remove-max-width {
+            max-width: none !important;
+        }
+        /* Full screen hero content */
+        .hero-content {
+            width: 100%;
+            padding: 0 5%;
+        }
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-gradient {
-                padding: 60px 20px;
+                padding: 0;
+            } 
+            .full-width-container {
+                padding-left: 20px;
+                padding-right: 20px;
             }
         }
     </style>
 </head>
 <body class="antialiased">
-    <nav class="p-6 flex justify-between items-center bg-white shadow-sm w-full">
+    <!-- Navigation - Fixed full width -->
+    <nav class="w-screen p-6 flex justify-between items-center bg-white shadow-sm">
         <h1 class="text-2xl font-bold tracking-tighter uppercase">Zengo <span class="text-blue-600">Play</span></h1>
         <div class="hidden md:flex space-x-8 font-medium">
             <a href="#about" class="hover:text-blue-600">What is Zengo?</a>
@@ -78,9 +108,10 @@
         </div>
         <button class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-700 transition">Enter Lab</button>
     </nav>
-    <header class="hero-gradient text-white px-6 text-center w-full">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-4 uppercase tracking-tight">Games On, Stress Gone</h2>
+    <!-- Hero Section - Full screen -->
+    <header class="hero-gradient text-white text-center">
+        <div class="hero-content max-w-6xl mx-auto">
+            <h2 class="text-5xl md:text-8xl font-extrabold mb-4 uppercase tracking-tight">Games On, Stress Gone</h2>
             <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">Relaxation Meets Recreation. Find your "off switch" through the power of play.</p>
             <div class="flex justify-center gap-4">
                 <a href="#games" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-opacity-90 transition">Explore Games</a>
@@ -88,7 +119,7 @@
             </div>
         </div>
     </header>
-    <section id="about" class="py-20 px-6 w-full">
+    <section id="about" class="py-20 full-width-container">
         <div class="max-w-5xl mx-auto text-center">
             <h3 class="text-3xl font-bold mb-6">What is Zengo Play?</h3>
             <p class="text-lg leading-relaxed text-gray-700 mb-6">
@@ -98,7 +129,7 @@
             <div class="italic font-bold text-blue-600 text-xl uppercase tracking-widest">Stress • Play • Repeat</div>
         </div>
     </section>
-    <section id="games" class="py-20 accent-beige px-6 w-full">
+    <section id="games" class="py-20 accent-beige full-width-container">
         <div class="max-w-6xl mx-auto text-center">
             <h3 class="text-4xl font-bold mb-12">Active Recovery Modes</h3>
             <div class="grid md:grid-cols-3 gap-8">
@@ -120,8 +151,8 @@
             </div>
         </div>
     </section>
-    <!-- NEW: Benefits Section -->
-    <section id="benefits" class="py-20 px-6 w-full bg-white">
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 full-width-container bg-white">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-4xl font-bold mb-12 text-center">Benefits of Zengo Play</h3>
             <div class="grid md:grid-cols-2 gap-8">
@@ -174,7 +205,7 @@
             </div>
         </div>
     </section>
-    <section id="digital" class="py-20 px-6 w-full">
+    <section id="digital" class="py-20 full-width-container">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
@@ -203,7 +234,6 @@
                         <div class="bg-white p-4 rounded text-2xl tracking-widest border border-blue-400">ONE-TIME PASSWORD</div>
                         <p class="mt-6 text-sm opacity-75">Scan QR code for instant access</p>
                         <div class="mt-4 inline-block bg-white p-4">
-                            <!-- QR code placeholder -->
                             <div class="w-32 h-32 bg-gray-300 flex items-center justify-center">
                                 <span class="text-xs">QR Code</span>
                             </div>
@@ -213,8 +243,8 @@
             </div>
         </div>
     </section>
-    <!-- NEW: Comment Section -->
-    <section id="contact" class="py-20 px-6 w-full bg-gray-50">
+    <!-- Comment Section -->
+    <section id="contact" class="py-20 full-width-container bg-gray-50">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-3xl font-bold mb-8 text-center">Send Us a Message</h3>
             <form id="commentForm" class="contact-form card-shadow">
@@ -224,38 +254,36 @@
                         <input type="text" id="name" name="name" 
                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                                required>
-                    </div>
+                    </div>                    
                     <div>
                         <label for="email" class="block text-gray-700 mb-2">Email</label>
                         <input type="email" id="email" name="email" 
                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                                required>
                     </div>
-                </div>       
+                </div>
                 <div class="mb-6">
                     <label for="subject" class="block text-gray-700 mb-2">Subject</label>
                     <input type="text" id="subject" name="subject" 
                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                            required>
-                </div>
+                </div>                
                 <div class="mb-6">
                     <label for="message" class="block text-gray-700 mb-2">Message</label>
                     <textarea id="message" name="message" rows="5"
                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                               required></textarea>
-                </div> 
+                </div>                
                 <button type="submit" 
                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
                     <i class="fas fa-paper-plane"></i>
                     Send Message to zengoplay@gmail.com
                 </button>
-            </form>
-            <!-- Form Status Messages -->
+            </form>            
             <div id="formStatus" class="mt-6 text-center hidden">
                 <p class="text-green-600 font-bold" id="successMessage">Message sent successfully!</p>
                 <p class="text-red-600 font-bold" id="errorMessage">Failed to send message. Please try again.</p>
-            </div>
-            <!-- Direct Email Link -->
+            </div>            
             <div class="text-center mt-8">
                 <p class="text-gray-600 mb-4">Or email directly:</p>
                 <a href="mailto:zengoplay@gmail.com" 
@@ -266,8 +294,8 @@
             </div>
         </div>
     </section>
-    <!-- UPDATED: Footer with Hyperlinks for Emergency Help -->
-    <footer id="help" class="bg-gray-900 text-white py-16 px-6 w-full">
+    <!-- Footer -->
+    <footer id="help" class="bg-gray-900 text-white py-16 full-width-container">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
                 <h4 class="text-2xl font-bold mb-4">Emergency Help</h4>
@@ -320,7 +348,7 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;     
+                if (targetId === '#') return;                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -329,13 +357,13 @@
                     });
                 }
             });
-        });
-        // Contact form handling - UPDATED FORMSPREEE URL
+        });        
+        // Contact form handling
         document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault();      
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData);          
-            // Send email using Formspree - UPDATED URL
+            const data = Object.fromEntries(formData);       
+            // Send email using your Formspree URL
             fetch('https://formspree.io/f/xeeeqrbr', {
                 method: 'POST',
                 headers: {
@@ -353,13 +381,10 @@
             .then(response => {
                 const statusDiv = document.getElementById('formStatus');
                 if (response.ok) {
-                    // Show success message
                     document.getElementById('successMessage').classList.remove('hidden');
                     document.getElementById('errorMessage').classList.add('hidden');
-                    statusDiv.classList.remove('hidden');
-                    // Reset form
-                    document.getElementById('commentForm').reset(); 
-                    // Hide message after 5 seconds
+                    statusDiv.classList.remove('hidden');     
+                    document.getElementById('commentForm').reset();
                     setTimeout(() => {
                         statusDiv.classList.add('hidden');
                     }, 5000);
@@ -368,50 +393,33 @@
                 }
             })
             .catch(error => {
-                // Show error message
                 document.getElementById('errorMessage').classList.remove('hidden');
                 document.getElementById('successMessage').classList.add('hidden');
                 document.getElementById('formStatus').classList.remove('hidden');
                 console.error('Error:', error);
             });
-        }); 
-        // Newsletter subscription function
+        });
         function subscribeNewsletter() {
             const emailInput = document.getElementById('newsletterEmail');
-            const email = emailInput.value.trim();
+            const email = emailInput.value.trim();            
             if (!email) {
                 alert('Please enter your email address.');
                 return;
-            }
+            }        
             if (!validateEmail(email)) {
                 alert('Please enter a valid email address.');
                 return;
-            }      
-            // In a real implementation, you would send this to your server
-            // For now, we'll just show a success message
+            }     
             alert('Thank you for subscribing to the Zengo Play newsletter!');
             emailInput.value = '';
         }
-        // Email validation helper function
         function validateEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
-        // Add hover effect to navigation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-                this.style.transition = 'transform 0.2s ease';
-            });
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
         // Make the Enter Lab button functional
         document.querySelector('nav button').addEventListener('click', function() {
             alert('Welcome to Zengo Play Lab! Accessing the interactive gaming space...');
-            // In a real implementation, this would redirect to the actual lab/games
-            // window.location.href = 'lab.html';
         });
     </script>
 </body>
